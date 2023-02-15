@@ -1,0 +1,102 @@
+
+
+
+
+
+The fundamental unit of java programming is to write a class
+
+Greeting.java
+----------------
+	class Greeting
+	{
+		()
+		{
+			code here
+		}
+	}	
+
+POPS = procedure oriented programming system
+
+	pops = procedure <-- data
+
+GLOBAL DATA
+		acno	acholder	acbal
+		
+		homeAddress
+
+		officeAddress
+
+			phoneno    birthdate
+
+			actype		
+
+
+
+	setIntialValues() { }
+
+		withdraw() { }
+
+		changePhone() { }
+
+		changeHomeAddress(){}   changeOfficeAddress() { }
+
+
+
+
+OOPS = object oriented programming system
+
+	oops = data <-- procedures
+
+	write a class to bind the data with	
+	concerned functions
+	
+	
+	object = physical state + behaviour		
+
+	cat    =  color, breed, weight + walk() { }
+					snooze() { }
+					meow() { }
+					chaseMice() { }
+					drinkMilk() { }
+
+	bankaccount = acno, acholder	withdraw() { }
+		     actype, acbal	deposit() { }
+		     phone, email	transfer() { }
+		     pin		getBalance() { }
+					printMiniStatement() { }
+					askForChequeBook() { }
+					changePin() { }
+
+	
+
+1. one .java file can have as many classes as you want
+2. each class may have its own main method
+3. after compiling a .java file JVM will produce class
+   files, that depends upon the number of classes declared in it
+		
+	A.java
+	--------
+	class X{}
+	class Y{}
+	class Z{}
+
+	javac A.java
+		|
+		X.class  Y.class Z.class
+
+4. how to run/which class to run?
+	you can run that class which has the main method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
