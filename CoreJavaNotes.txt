@@ -88,6 +88,101 @@ OOPS = object oriented programming system
 	you can run that class which has the main method
 
 
+OOPS
+------
+
+
+	1. Abstraction
+		Hiding the complexity of an object
+		and providing the simple USAGE of an object
+		in accessible way.
+
+
+		The "what is?" part of an object
+
+		a. data abstraction ( total cash inside an ATM
+					is hidden from the end user)
+		b. procedural abstraction
+				    ( authorizing the user from
+					the network, creating logs)
+			
+		c. class abstraction ( some nested classes are hidden)
+					some internal units of the
+					ATM are hidden from us
+				
+	2. Encapsulation
+		Responsible for the coding-complexity of 
+		an object
+
+		binding of concerned functions with the relevant data
+		
+		private data is hidden [ total cash in the ATM ] 
+		+
+		public function is exposed to the user 
+		dispenseCash(){ }
+
+			
+		The "How is it?" part of an object
+
+	3. Polymorphism
+		poly - right
+		morphism - form
+		ability of a business entity to acquire multiple forms
+
+		a. class extension
+			Doctor [ base class - super ]
+			|diagnose(){ EENTT }
+			|prescribe() { RGBPW bills }
+			|chargeFees() { 200/300 }
+		-----------------
+		|	
+		Surgeon [ derived class - sub ]
+		|dianose() { super.diagnose(); + CT scan }
+		|prescribe() { super.prescribe(); + external
+		|			medicine + extra test }
+		|chargeFees() { 1000/1500 }
+		-----------------------------------
+		|		|		|
+		HeartSurgeon	NeuroSurgeon	Orthopedician
+		|diagnose() { super.diagnose() + ECG report }
+		|prescribe() { super.diagnose() + angiography }
+		|chargeFees() { 5000/6000 }
+
+		
+		b. function overloading
+			-we can write multiple function with same name
+			-ability of a function to have multiple forms
+			-but they can be differentiated based on 
+				i. type of arguments
+				ii. number of args
+				iii. sequence of type of arguments
+
+			
+		c. function overriding
+		d. operator overloading
+. 
+	4. Inheritance
+
+	5. Object communication
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
