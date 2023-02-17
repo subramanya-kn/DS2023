@@ -7,10 +7,11 @@ public class BookTest3 {
 		Book book2 = new  Book(104, "PLSQL", "SM", 590, LocalDate.of(2009, 5, 9));		
 		Book book3 = new  Book(103, "USS", "YPK", 690, LocalDate.of(2023, 3, 13));
 		
-		
+		Book book4 = new Book(104, "Unleash Java");
 		book1.printBook();
 		book2.printBook();
 		book3.printBook();
+		book4.printBook();
 
 		System.out.println("---------");
 		System.out.println("book1 is stored at :" + book1);
@@ -51,13 +52,57 @@ class Book {
 
 	// METHODS / member functions
 	public Book(int bookId, String bookName, String authorName, float bookPrice, LocalDate bookPublishingDate) {
-		System.out.println("setting inital book details....");
+		System.out.println("Book(int,String,String,float,LocalDate)  constructor invoked.......");
 		this.bookId = bookId;
 		this.bookName = bookName;
 		this.authorName = authorName;
 		this.bookPrice = bookPrice;
 		this.bookPublishingDate = bookPublishingDate;
 	}
+	
+	
+
+	public Book(int bookId, String bookName, String authorName, float bookPrice) {
+		super();
+		System.out.println("Book(int,String,String,float)  constructor invoked.......");
+
+		this.bookId = bookId;
+		this.bookName = bookName;
+		this.authorName = authorName;
+		this.bookPrice = bookPrice;
+	}
+
+
+
+	public Book(int bookId, String bookName) {
+		super();
+		System.out.println("Book(int,String)  constructor invoked.......");
+
+		this.bookId = bookId;
+		this.bookName = bookName;
+	}
+
+	
+
+
+	public Book(int bookId) {
+		super();
+		System.out.println("Book(int)  constructor invoked.......");
+		this.bookId = bookId;
+	}
+
+
+
+	public Book(int bookId, String bookName, String authorName) {
+		super();
+		System.out.println("Book(int,String,String)  constructor invoked.......");
+
+		this.bookId = bookId;
+		this.bookName = bookName;
+		this.authorName = authorName;
+	}
+
+
 
 	public void printBook() {
 		System.out.println("--------------------");
