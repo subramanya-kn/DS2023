@@ -159,7 +159,29 @@ OOPS
 
 			
 		c. function overriding
+			a sub-class/child-class/derived-class re-defines a
+			function which has the same name and same arguments
+			as of its nearest super class function
+
+			class SavingsAccount
+			{
+				void withdraw(float amt)
+				{
+					code for transaction management
+					rules to maintain the min balance
+					code for security management
+				}
+			}
+			class FixedDepositAccount extends SavingsAccount
+			{
+				void withdraw(float amt)
+				{
+					super.withdraw() +
+					rules to main the maturity date of the acc
+				}
+			}
 		d. operator overloading
+			
 . 
 	4. Inheritance
 
