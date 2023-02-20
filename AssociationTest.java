@@ -54,22 +54,5 @@ class Calculator {
 
 
 /*
-class WashingPowder
-{
-	String brand; //Surf/Tide/Rin/Nirma/Wheel
-	int quantity; //gms/kg
-	String type; //front/top
-	public WashingPowder(String brand, int quantity, String type) {
-		super();
-		this.brand = brand;
-		this.quantity = quantity;
-		this.type = type;
-	}
-	public WashingPowder() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-}
+
 */
