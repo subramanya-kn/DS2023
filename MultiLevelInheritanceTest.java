@@ -1,18 +1,82 @@
-
+import java.time.LocalDate;
+/*
+ * 
+ * 
+ * 					Person
+ * 					| AadharCard aadharCard; //hasA
+ * 					| PersonalityType 
+ * 					| MedicalHistory
+ * 					|
+ * 		------------------
+ * 			|
+ * 		Student
+ * 			|
+ * 			|
+ * 		Employee
+ * 	
+ * 
+ * 
+ * 
+ */
 public class MultiLevelInheritanceTest {
 
 	public static void main(String[] args) {
 		
 		System.out.println("begin main");
+	/*	
+		ChessPlayer chessPlayer = new ChessPlayer();
+		chessPlayer.brain.left.process();
+		chessPlayer.brain.left.think();
 		
-		Person p = new Person('F',"Smita",23);
-		p.printPerson();
+		chessPlayer.brain.right.process();
+		chessPlayer.brain.right.imagines();
+		
+		
+		Doctor d = new Doctor();
+		d.stetho.readPulse();
+		
+		Surgeon s = new Surgeon();
+		s.stetho.readPulse();*/
+		
+		
+
+		Person personObjRef2 = new Person("Mediator");
+		personObjRef2.adharCard.setAadharCard("4234 4234 4234", "Punjab", LocalDate.of(1997, 2, 25), "Enthusiastic.jpg", "Garima", 'F',"8877667766");
+		personObjRef2.medicalHistory.setBloodGroupAndEyeSight("A", "Normal");
+		
+		personObjRef2.adharCard.printAdhaarCardDetails();
+		personObjRef2.medicalHistory.printBloodGroupAndEyeSight();
+		//personObjRef2.medicalHistory.printMedicalHistory();
+		personObjRef2.printPerson();
+
+		System.out.println("=====================================");
+		
+		/*
+		Person personObjRef1 = new Person("Architect");
+		personObjRef1.adharCard.setAadharCard("1234 1234 1234", "Bangalore", LocalDate.of(1997, 2, 25), "Smiley.jpg", "Smita Saxena", 'F',"9820982055");
+		personObjRef1.medicalHistory.setMedicalHistory("120/80", "140/160", "Normal", LocalDate.of(2022, 7, 20), "No Smoking", "No Alcohol", "B+", 160, 65);
+		personObjRef1.adharCard.printAdhaarCardDetails();
+		personObjRef1.medicalHistory.printMedicalHistory();
+		personObjRef1.printPerson();
+
+		System.out.println("=====================================");
+		
+		Student studentObjRef1 = new Student("Adventurer",'M',"Siddharth",20,101,"Bharathi VidyaPeeth","CS",95.50f,'A');
+		
+		studentObjRef1.adharCard.setAadharCard("5234 5234 6634", "Mumbai", LocalDate.of(1996, 4, 23), "Simple.jpg", "Siddhart", 'M',"8827782055");
+		studentObjRef1.medicalHistory.setMedicalHistory("120/80", "120/140", "Sharp", LocalDate.of(2022, 5, 25), "No Smoking At all", "No Alcohol at all", "O", 165, 60);
+		studentObjRef1.medicalHistory.printMedicalHistory();
+		studentObjRef1.adharCard.printAdhaarCardDetails();
+		studentObjRef1.printStudent();
+*/
+		
 		//System.out.println("p : "+p);
 		
-		System.out.println("--------------");
+		/*System.out.println("--------------");
 		
 		Student s = new Student('M',"Siddharth",20,101,"Bharathi VidyaPeeth","CS",95.50f,'A');
 		//System.out.println("s : "+s);
+		
 		s.printStudent();
 		
 		System.out.println("--------------");
@@ -22,43 +86,199 @@ public class MultiLevelInheritanceTest {
 		//System.out.println("e : "+e);
 		e.printEmployee();
 		System.out.println("end main");
-		
+		*/
 	}
 
 }
 
-class Person
+class Heart
 {
-	char gender;
-	String name;
-	int age;
 	
-	Person() {
-		//super(); //where this would call???
-		System.out.println("Person() ctor...");
+}
+class Lung
+{
+	
+}
+class Kidney
+{
+	
+}
+class Hemisphere
+{
+	void process() {
+		System.out.println("processing...");
 	}
-
-	public Person(char gender, String name, int age) {
-		super();
-		this.gender = gender;
-		this.name = name;
-		this.age = age;
-	}
-
-	@Override
-	public String toString() {
-		return "Person [gender=" + gender + ", name=" + name + ", age=" + age + "]";
+}
+class LeftHemisphere extends Hemisphere
+{
+	void think() {
+		System.out.println("analyzing....");
 	}
 	
-	void printPerson() {
-		System.out.println("GENDER : "+gender);
-		System.out.println("NAME   : "+name);
-		System.out.println("AGE    : "+age);
-		
+}
+class RightHemisphere extends Hemisphere
+{
+	void imagines() {
+		System.out.println("imagining....");
 	}
+	
+}
+class Brain
+{
+	LeftHemisphere left = new LeftHemisphere(); //hasA
+	RightHemisphere right = new RightHemisphere(); //hasA
 	
 	
 }
+
+//Car has Wheels, Bulb has Filament, 
+
+class Human 
+{
+	Heart heart = new Heart(); //hasA  ob1
+	
+	Brain brain = new Brain();		//obj2
+	
+	Lung lung1 =new Lung();			//obj3
+	Lung lung2 = new Lung();		//obj4
+	
+	Kidney kidney1 = new Kidney();  //obj5
+	Kidney kidney2 = new Kidney(); //obj6
+	
+	
+	
+	
+}
+
+class AadharCard
+{
+	String aadharNumber;
+	String address;
+	LocalDate birthdate;
+	String photograph;
+	String nameOnAdhaar;
+	char gender;
+	String phoneNumber;
+	
+	void setAadharCard(String aadharNumber, String address, LocalDate birthdate, String photograph, String nameOnAdhaar,
+			char gender, String phoneNumber) {
+		
+		this.aadharNumber = aadharNumber;
+		this.address = address;
+		this.birthdate = birthdate;
+		this.photograph = photograph;
+		this.nameOnAdhaar = nameOnAdhaar;
+		this.gender = gender;
+		this.phoneNumber = phoneNumber;
+	}
+	
+	void printAdhaarCardDetails() {
+		System.out.println(" --- AADHAAR DETAILS ---");
+		System.out.println("Adhaar Number    : "+aadharNumber);
+		System.out.println("Adhaar Address   : "+address);
+		System.out.println("Adhaar birthdate : "+birthdate);
+		System.out.println("Adhaar Photo     : "+photograph);
+		System.out.println("Adhaar Name      : "+nameOnAdhaar);
+		System.out.println("Adhaar gender    : "+gender);
+		System.out.println("Adhaar Phone     : "+phoneNumber);
+		System.out.println("-------------------------");
+	}
+}
+
+class MedicalHistory
+{
+	String bloodPressure; //130/90
+	String sugarLevel; //both fasting /pp  140/160
+	String eyeSight;
+	LocalDate lastDateDiagnosed;
+	String smokingHistory;
+	String alcoholHistory;
+	String bloodGroup;
+	int height;
+	int weight;
+	
+	
+	
+	public void setBloodGroupAndEyeSight(String eyeSight, String bloodGroup) {
+		
+		this.eyeSight = eyeSight;
+		this.bloodGroup = bloodGroup;
+	}
+
+	public void setMedicalHistory(String bloodPressure, String sugarLevel, String eyeSight, LocalDate lastDateDiagnosed,
+			String smokingHistory, String alcoholHistory, String bloodGroup, int height, int weight) {
+		this.bloodPressure = bloodPressure;
+		this.sugarLevel = sugarLevel;
+		this.eyeSight = eyeSight;
+		this.lastDateDiagnosed = lastDateDiagnosed;
+		this.smokingHistory = smokingHistory;
+		this.alcoholHistory = alcoholHistory;
+		this.bloodGroup = bloodGroup;
+		this.height = height;
+		this.weight = weight;
+	}
+
+	void printBloodGroupAndEyeSight() {
+		System.out.println("----Medical History -----");
+		System.out.println("Eye Sight      : "+eyeSight);
+		System.out.println("Blood Group    : "+bloodGroup);
+		System.out.println("---------------");
+	}
+	void printMedicalHistory() {
+		System.out.println("----Medical History -----");
+		System.out.println("Blood Pressure : "+bloodPressure);
+		System.out.println("Sugar Levels   : "+sugarLevel);
+		System.out.println("Eye Sight      : "+eyeSight);
+		System.out.println("Last Diagnosed : "+lastDateDiagnosed);
+		System.out.println("Smoking history: "+smokingHistory);
+		System.out.println("Alcohol history: "+alcoholHistory);
+		System.out.println("Blood Group    : "+bloodGroup);
+		System.out.println("Height         : "+height);
+		System.out.println("Weight         : "+weight);
+		System.out.println("---------------");
+	}
+	/*@Override
+	public String toString() {
+		return "MedicalHistory [bloodPressure=" + bloodPressure + ", sugarLevel=" + sugarLevel + ", eyeSight="
+				+ eyeSight + ", lastDateDiagnosed=" + lastDateDiagnosed + ", smokingHistory=" + smokingHistory
+				+ ", alcoholHistory=" + alcoholHistory + ", bloodGroup=" + bloodGroup + ", height=" + height
+				+ ", weight=" + weight + "]";
+	}*/
+	
+	
+
+}
+
+class Person extends Human
+{
+	//char gender; //hasA - essential part of the enclosing object/class
+	//String name;
+	//int age;
+	AadharCard adharCard = new AadharCard(); //User defined type UDT
+	String personalityType;
+	MedicalHistory medicalHistory = new MedicalHistory();
+	
+	
+	
+	Person(String personalityType) {
+		//super(); //where this would call???
+		System.out.println("Person(String) ctor...");
+		this.personalityType = personalityType;
+	}
+
+	void printPerson() {
+		System.out.println("Personality : "+personalityType);
+	}
+}
+/*
+class ChessPlayer extends Person
+{
+	void playingChess() {
+		brain.left.think();
+		brain.right.imagines();
+	}
+}*/
+
 class Student extends Person
 {
 	int rollNumber;
@@ -67,14 +287,12 @@ class Student extends Person
 	float totalMarks;
     char grade;
     
-	Student() {
-		//super(); //default line of every ctor
-		System.out.println("Student() ctor...");
-	}
+	
 
-	public Student(char gender, String name, int age, int rollNumber, String collegeName, String stream,
+	public Student(String personalityType, char gender, String name, int age, int rollNumber, String collegeName, String stream,
 			float totalMarks, char grade) {
-		super(gender, name, age);
+		//super(gender, name, age);
+		super(personalityType);
 		this.rollNumber = rollNumber;
 		this.collegeName = collegeName;
 		this.stream = stream;
@@ -106,15 +324,12 @@ class Employee extends Student
 	double basicSalary;
 	
 	
-	Employee() {
-		//super();//invokes the nearest super ctor..
-		System.out.println("Employee() ctor...");
-	}
 
 
-	public Employee(char gender, String name, int age, int rollNumber, String collegeName, String stream,
+
+	public Employee(String persType , char gender, String name, int age, int rollNumber, String collegeName, String stream,
 			float totalMarks, char grade, int employeeId, String companyName, String designation, double basicSalary) {
-		super(gender, name, age, rollNumber, collegeName, stream, totalMarks, grade);
+		super(persType,gender, name, age, rollNumber, collegeName, stream, totalMarks, grade);
 		this.employeeId = employeeId;
 		this.companyName = companyName;
 		this.designation = designation;
@@ -166,3 +381,161 @@ class B
 		
 	}
 }
+
+
+class Doctor
+{
+	Stethoscope stetho = new Stethoscope();
+	
+}
+class Surgeon extends Doctor //isA
+{
+	
+}
+/*
+class Patient extends Person
+{
+	
+}
+class HeartPatient extends Patient
+{
+	
+}
+*/
+
+/*
+ * 
+ * 						   Scope
+ * 							| void probe(){}
+ * 				-----------------------------
+ * 				|			|			|
+ * 			Stethoscope	MicroScope	TeleScope
+ * 			readPulse()		|zoom(){}	 |zoomInMacro(){}
+ * 					ElectronMicroScope	ElectronTelescope
+ * 
+ */
+class Scope
+{
+	
+}
+class Stethoscope extends Scope
+{
+	void readPulse() {
+		System.out.println("reading the pulse...");
+	}
+}
+class MicroScope extends Scope
+{
+	void zoomIn() {
+		System.out.println("zoom in into the micro world...");
+	}
+}
+class TeleScope extends Scope
+{
+	
+}
+
+/*class Scope extends Telescope
+{
+	
+}
+
+class P extends Q
+{
+	
+}
+class Q extends P
+{
+	
+}*/
+
+
+
+class Shop
+{
+	
+}
+
+class PanShop extends Shop
+{
+	
+}
+class ShoeShop extends Shop
+{
+	
+}
+
+class Mall extends Shop
+{
+	
+}
+class ShoppingMall extends Mall
+{
+	
+}
+
+
+class Item
+{
+	
+}
+class ShoppingItem extends Item
+{
+	
+}
+
+
+
+class AnyClass
+{
+	int anyData1; //FIELD area
+	int anyData2; 
+	int anyData3;
+	
+	
+	//METHOD AREA
+	AnyClass() {
+		
+	}
+	void anyfunction()
+	{
+		
+	}
+	void otherFunction() {
+		
+	}
+	void someFunction() {
+		
+	}
+}
+
+
+class Parent
+{
+	int i; //hasA
+	int x;
+	
+	Parent(int i) {
+		this.i=i;
+	}
+	Parent(int i, int x) {
+		this.i=i;
+		this.x=x;
+	}
+}
+class Child extends Parent //isA
+{
+	int j; //hasA
+	
+	Child(int i, int j) {
+		super(i);
+		this.j=j;
+	}
+}
+
+
+
+
+
+
+
