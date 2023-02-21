@@ -8,11 +8,24 @@ public class KiteTest {
 		Kite k2 = new  Kite("Red","Sidhharth",50,true);
 		Kite k3 = new  Kite("Green","Shriharsha",40,true);
 		
+		System.out.println("k1 : "+k1);
+		System.out.println("k2 : "+k2);
+		System.out.println("k3 : "+k3);
+		
+		
 		Kite.printKiteCount();
 		
 		Kite k4 = new  Kite("Blue","Ambika",40,true);
-		Kite k5 = new  Kite("Magenta","GArima",50,true);
+		Kite k5 = new  Kite("Magenta","Garima",50,true);
+		
+		System.out.println("k4 : "+k4);
+		System.out.println("k5 : "+k5);
+		
 	
+		Kite.printKiteCount();
+		
+		k3.kiteFight(k2);
+		
 		Kite.printKiteCount();
 	}
 
@@ -30,10 +43,39 @@ class Kite
 	//class's data - its the data of the Class and not of the object
 	private static int kiteCount; // not the field of the object
 	
-	public static void printKiteCount() {
+	public static void printKiteCount() { //static function can always refer to static data
 		System.out.println("Total kites : "+kiteCount);
 	}
 	
+	public void kiteFight(Kite refToKite) {
+		System.out.println(kiteOwner + " initiated kite fight with "+refToKite.kiteOwner);
+		for(int i=1;i<=10;i++) {
+			double d = Math.random()%100;
+			System.out.println("\tKite fight is going on....."+d);
+			if(d > 0.95) {
+				kiteCount--;
+				flying=false;
+				System.out.println("Mine: Ohh kite of "+kiteOwner+" is down");
+				break;
+			}
+			else  if (d < 0.10) {
+				kiteCount--;
+				refToKite.flying=false;
+				System.out.println("Your: Wow kite of "+refToKite.kiteOwner+" is down");
+				break;
+			}
+			else if(d > 0.50 && d <0.75) {
+				flying=false;
+				refToKite.flying=false;
+				System.out.println("Both: Ohh kite of "+kiteOwner+" is down");
+				System.out.println("Both: Wow kite of "+refToKite.kiteOwner+" is down");
+				kiteCount--;
+				kiteCount--;
+				break;
+			}
+		}
+	}
+
 	public Kite(String kiteColor, String kiteOwner, int kiteLength, boolean flying) {
 		super();
 		this.kiteColor = kiteColor;
