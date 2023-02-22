@@ -1,13 +1,40 @@
 
-class BedRoom
+class House
 {
 	void restOnTheBed(Sleeping x, Sleeping y) {
-		x.think();
-		x.eat();
+		System.out.println("resting on the bed....");
+		//x.think();
+		//x.eat();
 		x.sleep();
-		y.eat();
-		y.bark();
+		//y.eat();
+		//y.bark();
 		y.sleep();
+		
+	}
+	
+	void dining(Eating x, Eating y) {
+		System.out.println("eating on the dining table....");
+		//x.think();
+		x.eat();
+		//x.sleep();
+		y.eat();
+		//y.bark();
+		//y.sleep();
+	}
+	void writingArticle(Feeling f, Thinking t)
+	{
+		f.feel();
+		t.think();
+	}
+}
+
+class Studio
+{
+	void letsMakeASong(Lyrics x, Music y, Singer z)
+	{
+		System.out.println("lets make a song .....");
+		Song gotTheSong = z.sing(x, y);
+		
 	}
 }
 public class InterfaceTest {
@@ -15,10 +42,25 @@ public class InterfaceTest {
 	public static void main(String[] args) {
 		
 		Human human = new Human();
+		Human human2 = new Human();
 		Dog dog = new Dog();
 		
-		BedRoom bed = new BedRoom();
-		bed.restOnTheBed(human, dog);
+		Studio theStudio = new Studio();
+		Lyrics lyr = new Lyrics();
+		Music mus = new Music();
+		Singer singer = new Singer();
+		
+		theStudio.letsMakeASong(lyr, mus, singer);
+		
+		
+		
+		House house = new House();
+		house.restOnTheBed(human, dog);
+		System.out.println("---------");
+		house.dining(human, dog);
+			
+		
+		
 		
 	/*	Sleeping x = new Human();
 		
@@ -89,6 +131,23 @@ interface Thinking
 interface Feeling extends Thinking
 {
 	void feel();
+}
+class Song {}
+class Lyrics {}
+class Music {}
+
+interface Singing
+{
+	Song sing(Lyrics l, Music m ); //declaration
+}
+
+class Singer extends Human implements Singing
+{
+	public Song sing(Lyrics l, Music m) { //implementation
+		
+		Song theSong = new Song();
+		return theSong;
+	}
 }
 class Human extends Mammal implements  Feeling //1+2+4=7 methods in Human
 {
