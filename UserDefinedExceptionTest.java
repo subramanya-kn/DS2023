@@ -9,17 +9,23 @@ public class UserDefinedExceptionTest {
 		try {
 			person.shower();
 		}
-		catch(WaterTooColdException e) {
-			System.out.println("Handler1 :"+e);
-		}
-		catch(WaterTooHotException e) {
-			System.out.println("Handler2 :"+e);
-		}
-		catch(NoWaterException e) {
+		catch(NoWaterException e) { //mandatory for checked
 			System.out.println("Handler3 :"+e);
 		}
-		catch(SlipAndFallException e) {
+		
+		catch(WaterTooColdException e) { //not mandatory since it is unchecked
+			System.out.println("Handler1 :"+e);
+		}
+		catch(WaterTooHotException e) { //not mandatory since it is unchecked
+			System.out.println("Handler2 :"+e);
+		}
+		
+		catch(SlipAndFallException e) { //not mandatory since it is unchecked
 			System.out.println("Handler4 :"+e);
+		}
+		finally { //runs regardless of the execption
+			
+			System.out.println("Finally shower is OVER.....");
 		}
 
 		
@@ -31,13 +37,12 @@ public class UserDefinedExceptionTest {
 
 class Person
 {
-	
-	void shower() 
+	void shower() throws NoWaterException //mandatory for throwing checked-on
 	{
 		System.out.println("Inside the washroom....");
 		
 		double d = Math.random()%10;
-		if(d < 0.10) {
+		if(d < 0.20) {
 			//System.out.println("No water ...");
 			//RuntimeException rte = new RuntimeException("Water is not there...cannot begin shower....");
 			NoWaterException rte = new NoWaterException("Hey...there is no water..cannot shower...");
@@ -96,7 +101,7 @@ class WaterTooColdException extends RuntimeException
 	
 }
 
-class NoWaterException extends RuntimeException
+class NoWaterException extends /*Runtime*/Exception //checked category now
 {
 
 	public NoWaterException(String message) {
