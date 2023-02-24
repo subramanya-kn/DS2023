@@ -181,11 +181,566 @@ OOPS
 				}
 			}
 		d. operator overloading
+			redefine the functionality of the operator sign
 			
+			class Number
+			{
+				int num;
+
+			}			
 . 
 	4. Inheritance
+		Acquiring propertise from existing classes
+
+		a. single level 
+		b. multi level	
 
 	5. Object communication
+
+class ReportCard
+{
+}
+class Student 
+{
+	ReportCard rptSem1 = new ReportCard(); //hasA
+	ReportCard rptSem2 = new ReportCard();
+	ReportCard rptSem3 = new ReportCard();
+	ReportCard rptSem4 = new ReportCard();
+	ReportCard rptSem5 = new ReportCard();
+	ReportCard rptSem6 = new ReportCard();
+	ReportCard rptSem7 = new ReportCard();
+	ReportCard rptSem8 = new ReportCard();
+
+}
+				Association 
+					|
+		----------------------------------------------
+		|	|		|		|
+		isA	hasA		usesA		producesA
+
+	Person
+	 |isA
+-----------------
+|		|
+Student	  	Examiner	
+ ReportCard	    QuestionPapar
+
+	Card <-- generalization
+	|isA
+--------------------------------------
+|		|		|
+ReportCard	VotingCard	DebitCard <-- specialization
+
+
+
+		Paper
+		|isA
+	---------------------------
+	|	|		|		|
+  QuestionPaper NewsPaper  TissuePaper	ManifestoPaper
+
+
+			Hall
+			|isA
+		---------------------------------------------
+		|		|			|
+	ExaminationHall		MarriagePartyHall  BirthdayPartyHall
+
+
+
+
+
+
+
+
+
+
+		koshas - sheth
+
+	we human made up of 5 bodies
+
+		outerbody1 - Annamaya [ food we eat ]
+		  innerbody2 - Pranamaya [ breathing ]
+		    innerbody3 - Manomaya [ thinking ]
+		     innerbody4 - VigyanMaya [ Intellegence / buddhi ]
+		      innerMost   - AnandaMaya [ Ananda / bliss ]	
+
+				LivingBeing
+					|
+				--------------------
+				|		|
+				Animal		Tree
+				|			
+				| eat(), sleep(), fear(), reproduce()
+		--------------------------------------------------
+		|		|		|		|
+	      Mammal		Bird		Fish		Reptile
+		|giveBirth()	|layEggs();	|layEggs()	|layEggs()
+		|walk();	|fly();		|swim()		|crawl();
+	-----------------	---------	---------	----------------
+	|		|	|	|	|	|	|	      |
+	Human		Dog	Sparrow Parrot	Shark SwordFish Snake     Crocodile
+	think()		bark()  chrp()  mimick() swim1() swim2() throwVenum() biteJaw(){} 
+	|
+	Person							|		|
+	|
+	Student
+	|
+	Employee
+
+
+
+
+
+
+	learning + action = output
+	|		|
+	knowledge 	wisdom
+
+
+
+	A			B			C
+------------------------------------------------------------------
+	final			static			abstract
+------------------------------------------------------------------
+field	cannot be		shared fields		---
+	changed/		across all the 		---
+	constants		objects			---
+------------------------------------------------------------------
+method	cannot be
+	overridden
+	by the child
+------------------------------------------------------------------
+class	class cannot
+	become father	
+------------------------------------------------------------------
+
+
+
+
+
+
+
+	final float PI=3.14
+
+
+static data member
+------------------
+
+	- declared inside the class
+	- they belong to the class's design
+	- they are not the part of an object's field
+
+	- they pre-loaded before any object
+	- they remain in the memory even the object is lost
+
+	- so how to refer them?????? if they are private?????
+
+
+static member functions
+-------------------------
+	- they are not belong to the object
+	- they are of the class
+	- they can be called via classname.functionname
+
+
+
+			GeometricalShape
+				|area
+				|calcArea(); <-- abstract
+				|calcPerimeter();<--abstract
+		----------------------------------
+		|				|
+		Circle				Square
+		|radius				|
+		|calcArea(){}			|
+		|calcPerimeter(){}		|
+		|
+		Ellipse				Rectangle
+		|radius2
+		|u can do overriding
+		|here[ optional ]
+
+Circle c = new Circle();
+Ellipse e = new Ellipse();
+
+
+
+
+
+
+
+
+
+		if a new bank is open in your area
+
+		|
+		bank name | branch | pin code
+
+		- no accounts open till now
+
+		- should the bank declare the rate of interest to attract
+			customer
+
+			rateOfInterest=2.5f;
+
+			revise it
+
+			rateOfInterest=3.0f;
+
+
+
+		accountNumber accountHolder  accountBalance
+		101		Narayan		50000
+
+		accountNumber accountHolder  accountBalance
+		102		Saneep		60000
+
+		accountNumber accountHolder  accountBalance
+		103		Shailesh	70000
+	
+
+
+		kite1 <--red 3 
+		|			kite2 <--yellow 3
+		|			|
+		|length (40m)2		|30m 2
+		|			|
+		narayan (owner)1	sandeep (owner)1
+
+
+
+
+
+
+		kiteCount <--
+
+	sandesh <-- is to count the kites
+
+
+
+fundamental unit of programming in java is to write a :clas
+funtamental unit of object oriented programming is to make a : pure type
+
+s
+abstract class
+		- abstract functions
+		- non-abstract functions
+
+
+interface is a pure abstract class
+		- only can have abstract functions
+
+
+	Eating	Sleeping  Fearing  Reproducing
+	|	|	   |		|
+	-----------------------------------
+			|
+			Animal
+			|4
+		-------------------
+		|
+		| Walking 
+		| |
+		Mammal
+		|2
+		|
+	--------------------------
+	|			|
+	|	Thinking	|	
+	|	|1		|
+	| Feeling		|Barking Sniffing
+	| |1			|  |	     |
+	| |			|---------------
+	| |			||
+	Human			Dog
+		
+	restOnBed(Feeling x, Sleeping y) { }
+
+
+
+
+------------------------------------------------------------------------
+
+
+	Exception = run-time error
+
+
+				error	
+				|
+		------------------------------------
+		|	 |	 |	|	|
+		syntax  runtime	linker	fatal	logical
+		|	|	 |	|	|	
+	semi-colon  exceptions MISSING  Error	4+4=16
+	missing;	       LIBRARIES
+	{ imbalanced
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	void transferFunds(SavigsAccout sa, SavingsAccount ta, float amt)
+	{
+
+		if(ta!=null)
+		{
+			if(sa!=null)
+			{
+				if(sa.getBalance() > amt ){
+					sa.withdraw(amt);
+					ta.deposit(amt);
+				}
+				else {
+					Sop("Insufficient funds...");
+				}
+			}
+			else {
+				Sop("Source does not exist");
+			}
+		}
+		else {
+			Sop("Target does not exist");
+		}
+	}
+
+	void transferFunds(SavigsAccout sa, SavingsAccount ta, float amt)
+	{
+
+		try
+		{
+			check presence of ta
+			check presence of sa
+			sa.getBalance() > amt
+			sa.withdraw(amt);
+			ta.deposit(amt);			
+		}
+		catch(if ta is null) {
+			Sop("Target does not exist");
+		}
+		catch(if sa is null) {
+			Sop("Source does not exist");
+		}
+		catch(if sa does not have suff bal) {
+			Sop("Insufficient funds...");
+		}
+	}
+
+
+
+
+
+			Object
+			   |
+		----------------------
+				|
+				Throwable
+				|
+			-----------------
+			|		|
+			Error		Exception
+					|(Checked)
+			-------------------------------
+			|			|
+		RuntimeException		IOException
+		     |				|
+		     | (unChecked)	FileNotFoundException
+		     |
+-----------------------------------------------------------------------------
+|		     | 				  |			 |
+WaterTooHotException WaterTooColdException	  |
+						  |
+				IndexOutOfBoundsException NullPointerException ArithmeticException
+				|
+	-------------------------------------
+		|			|
+	StringIndexOutOfBoundsException ArrayIndexOutOfBoundsException
+
+Checked = checked by the compiler
+UnChecked = not checked by the compiler
+		( but at runtime they might occur) 
+
+
+	try
+	{
+	}
+	catch() {
+	}
+	catch() {
+	}
+	catch() {
+	}
+----------------------------------------------------------
+
+	Packages
+
+		Package is similar to a directory
+		|			|
+		java			operating system
+
+
+	to organize your classes in concerned folders
+
+	
+			java
+			|
+	--------------------------------------
+	|	|	|	|	|
+	lang	awt	io	sql	utils
+	|	|	|	|	|
+	System  Frame	File	Driver	Arrays
+	Thread	Button  Directory	Scanner
+	String  TextField
+	Exception
+	RuntimeExeception
+
+
+
+			src
+			|
+	---------------------------
+	|no-package	|
+	Fly.java	jungle <--super package [ parent folder ]
+	FlyTest.java	|
+			|
+	-----------------------------
+	|	|	|	|
+	cave	tree	river	house <-- sub packages [ sub directories]
+	|	|	|	|
+	Tiger	Monkey	Frog	You
+
+
+	package jungle;
+	package jungle.cave  --[ c:\vishal\jungle\cave ]
+
+		A	B		C		D		E	
+		<--no packages-->	within		within		
+		class	subclass	package		subclass &	global
+							within	
+							package
+					jungle.cave	jungle.cave	
+------------------------------------------------------------------------------
+public		YES	YES		YES		YES		YES
+
+------------------------------------------------------------------------------
+protected
+
+------------------------------------------------------------------------------
+default		Fly	ButterFly	Tiger want	NO		NO
+Fly/ButterFly	YES	YES		ButterFly
+					NO
+							Eagle extends
+							Fly
+------------------------------------------------------------------------------
+private
+
+------------------------------------------------------------------------------
+
+
+
+		pack1		pack2
+		|		|
+	   Savings.java		Savings.java
+	   class Savings	class Savings { }
+	   { } 
+	   class Current{ }	Fixed.java
+				class Fixed { }
+
+	pack1.Savings		pack2.Savings
+
+
+
+
+
+			Writeable			
+			  |write();		
+			  |			
+		------------------------+	?
+		|	|		|	|	
+		Pen	Pencil		|	Stone
+		|start();		|	|
+	---------------------		----------
+	|		|	  	|
+    FountainPen		GelPen		Chalk
+
+
+			Runnable (i)
+			  | run();
+			  |
+		---------------------			Frame
+		|					|
+		Thread(c)				|
+		|start(){}				|
+		|run(){}				|
+	----------------------------------	--------------
+	|	|	|	|	|		  |
+      Bike	Car	Train	Boat	Airplane	MyFrame
+	|
+   MotorBike
+
+
+I. by extending Thread class
+
+II. by implementing Runnable interface
+
+
+
+
+Interthread communication
+---------------------------
+
+
+			FoodItem
+			 | pizza
+			 | cost
+			 | itemServed? t/f
+			 | eat() { }
+			 | serve() { }
+
+		Thread	<---------->	Thread
+		|			|
+		Producer		Consumer
+		|run()			|run()
+		|produce()-->serve()	|consume() --> eat()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
