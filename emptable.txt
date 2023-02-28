@@ -8,18 +8,54 @@ CREATE TABLE EMP1 (
  COMM                int,
  DEPTNO              int  NOT NULL,
 );
-insert into emp1 values(7369, 'SMITH'  , 'CLERK'     , 7902 , '1980-12-17' ,  800 , NULL ,  1000,null,20);
-insert into emp1 values(7499, 'ALLEN'  , 'SALESMAN'  , 7698 , '1981-02-20' , 1600 ,  300 ,  1000,700,30 );
-insert into emp1 values(7521, 'WARD'v  , 'SALESMAN'  , 7698 , '1981-02-22' , 1250 ,  500 ,  4000,800,30 );
-insert into emp1 values(7566, 'JONES'  , 'MANAGER'   , 7839 , '1981-03-02' , 2975 , NULL ,  7000,null,20);
-insert into emp1 values(7654, 'MARTIN' , 'SALESMAN'  , 7698 , '1981-09-28' , 1250 , 1400 ,  5000,400,30 );
-insert into emp1 values(7698, 'BLAKE'  , 'MANAGER'   , 7839 , '1981-05-01' , 2850 , NULL ,  7000,null,30 );
-insert into emp1 values(7782, 'CLARK'  , 'MANAGER'   , 7839 , '1981-06-09' , 2450 , NULL ,  7000,null,10 );
-insert into emp1 values(7788, 'SCOTT'  , 'ANALYST'   , 7566 , '1982-12-09' , 3000 , NULL ,  5000,null,20 );
-insert into emp1 values(7839, 'KING'   , 'PRESIDENT' , NULL , '1981-12-17' , 5000 , NULL ,  9000,null,10 );
-insert into emp1 values(7844, 'TURNER' , 'SALESMAN'  , 7698 , '1981-09-08' , 1500 ,    0 ,  4000,200,30 );
-insert into emp1 values(7876, 'ADAMS'  , 'CLERK'     , 7788 , '1983-01-12' , 1100 , NULL ,  1000,null,20 );
-insert into emp1 values(7900, 'JAMES'  , 'CLERK'     , 7698 , '1981-12-03' ,  950 , NULL ,  1000,null,30 );
-insert into emp1 values(7902, 'FORD'   , 'ANALYST'   , 7566 , '1981-12-03' , 3000 , NULL ,  5000,null,20 );
-insert into emp1 values(7934, 'MILLER' , 'CLERK'     , 7782 , '1982-01-23' , 1300 , NULL ,  1000,null,10 );
+insert into emp1 values(7369, 'SMITH'  , 'CLERK'     , 7902 , '1980-12-17' ,  800 , NULL ,  20);
+insert into emp1 values(7499, 'ALLEN'  , 'SALESMAN'  , 7698 , '1981-02-20' , 1600 ,  300 ,  30 );
+insert into emp1 values(7521, 'WARD'v  , 'SALESMAN'  , 7698 , '1981-02-22' , 1250 ,  500 ,  ,30 );
+insert into emp1 values(7566, 'JONES'  , 'MANAGER'   , 7839 , '1981-03-02' , 2975 , NULL ,  ,20);
+insert into emp1 values(7654, 'MARTIN' , 'SALESMAN'  , 7698 , '1981-09-28' , 1250 , 1400 ,  ,30 );
+insert into emp1 values(7698, 'BLAKE'  , 'MANAGER'   , 7839 , '1981-05-01' , 2850 , NULL ,  ,30 );
+insert into emp1 values(7782, 'CLARK'  , 'MANAGER'   , 7839 , '1981-06-09' , 2450 , NULL ,  ,10 );
+insert into emp1 values(7788, 'SCOTT'  , 'ANALYST'   , 7566 , '1982-12-09' , 3000 , NULL ,  ,20 );
+insert into emp1 values(7839, 'KING'   , 'PRESIDENT' , NULL , '1981-12-17' , 5000 , NULL ,  ,10 );
+insert into emp1 values(7844, 'TURNER' , 'SALESMAN'  , 7698 , '1981-09-08' , 1500 ,    0 ,  ,30 );
+insert into emp1 values(7876, 'ADAMS'  , 'CLERK'     , 7788 , '1983-01-12' , 1100 , NULL ,  ,20 );
+insert into emp1 values(7900, 'JAMES'  , 'CLERK'     , 7698 , '1981-12-03' ,  950 , NULL ,  ,30 );
+insert into emp1 values(7902, 'FORD'   , 'ANALYST'   , 7566 , '1981-12-03' , 3000 , NULL ,  ,20 );
+insert into emp1 values(7934, 'MILLER' , 'CLERK'     , 7782 , '1982-01-23' , 1300 , NULL ,  ,10 );
 
+select 'good','morning' from emp;
+select ename, ' is working as ', job from emp;
+select ename,job,sal, sal*0.40 as 'HRA' from emp;
+select ename,job,sal, sal*0.40 as 'HRA', sal*0.30 as 'DA' from emp;
+select ename,job,sal, sal*0.40 as 'HRA', sal*0.30 as 'DA', sal*0.10 as 'PF'  from emp;
+select * from emp where comm is null;
+select * from emp where comm is not null;
+select * from emp where sal >= 3000;
+select * from emp where sal >= 1500 and sal<=3000;
+select * from emp where job='MANAGER' and sal>=2500;
+
+
+
+select adddate('2023-09-25', INTERVAL expr);
+
+expr can be YEAR, DAY, WEEK, MONTH, QUARTER, HOUR, MINUTE, SECOND, MILLISECOND
+
+create table flight_schedule
+    -> (
+    ->    flno varchar(20) primary key,
+    ->    flname varchar(20),
+    ->    departure_date timestamp,
+    ->    source varchar(20),
+    ->    destination varchar(20)
+    -> );
+
+mysql> select empno,ename, hiredate, adddate(hiredate,interval 30 year) from emp;
+
+
+
+
+
+
+
+
+insert into flight_schedule values ('GA101','Go Air',TIMESTAMP('2023-09-25','15:30:20'), 'Mumbai','London');
