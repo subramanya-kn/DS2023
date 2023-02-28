@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 public class TestDAO {
 
 	
@@ -9,13 +11,18 @@ public class TestDAO {
 
 		EmployeeDAOImpl empDaoImpl = new EmployeeDAOImpl();
 	
-		Employee employee = new Employee();
+		List<Employee> empList = empDaoImpl.getEmployees();
+		
+		for (Employee employee : empList) {
+			System.out.println("Emp : "+employee);
+		}
+		/*Employee employee = new Employee();
 		employee.setEmployeeNumber(104);
 		employee.setEmployeeName("Robert");
 		employee.setEmployeeJob("Clerk");
 		employee.setEmployeeSalary(6000);
 		
-		empDaoImpl.addEmployee(employee);
+		empDaoImpl.addEmployee(employee);*/
 		
 	}
 

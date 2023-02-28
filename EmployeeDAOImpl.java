@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -27,7 +30,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			pst.setString(2, e.getEmployeeName());
 			pst.setString(3, e.getEmployeeJob());
 			pst.setInt(4, e.getEmployeeSalary());
-			
 			int rows = pst.executeUpdate(); //run the insert query	
 			System.out.println("4. executed the insert query : "+rows+ " row(s) inserted");
 		} catch (SQLException e1) {
@@ -38,8 +40,30 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public List<Employee> getEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Employee> empList = new ArrayList<Employee>();//blank list
+		
+		try {
+			Statement statement = conn.createStatement();
+			System.out.println("3. Statement created....");
+			ResultSet result = statement.executeQuery("SELECT * FROM EMPLOYEE"); //eid, ename, job, sal    cid,cname,city,pin
+			System.out.println("4. execute the query");
+
+			System.out.println("5. acquire the result and process it");
+
+			while (result.next()) {
+				Employee employee = new Employee(); //make a blank employee object
+				employee.setEmployeeNumber(result.getInt(1)); //fill it up column wise
+				employee.setEmployeeName(result.getString(2));
+				employee.setEmployeeJob(result.getString(3));
+				employee.setEmployeeSalary(result.getInt(4));
+				empList.add(employee); //push this object in the list
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return empList;
 	}
 
 	@Override

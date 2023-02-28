@@ -46,6 +46,11 @@ public class Employee { //bean class | component
 	public void setEmployeeSalary(int employeeSalary) {
 		this.employeeSalary = employeeSalary;
 	}
+	@Override
+	public String toString() {
+		return "Employee [employeeNumber=" + employeeNumber + ", employeeName=" + employeeName + ", employeeJob="
+				+ employeeJob + ", employeeSalary=" + employeeSalary + "]";
+	}
 	
 	
 	
