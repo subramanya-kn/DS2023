@@ -74,7 +74,25 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void updateEmployee(Employee e) {
-		// TODO Auto-generated method stub
+		
+		try {
+			PreparedStatement pst = conn.prepareStatement("update employee set ename=?, job=?, sal=? where empno=?");
+			System.out.println("3. PreparedStatement created....");
+
+			
+			pst.setString(1, e.getEmployeeName());
+			pst.setString(2, e.getEmployeeJob());
+			pst.setInt(3, e.getEmployeeSalary());
+			
+			pst.setInt(4, e.getEmployeeNumber());
+
+			int rows = pst.executeUpdate(); //run the insert query
+			
+			System.out.println("4. executed the update query : "+rows+ " row(s) updated");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 	}
 
