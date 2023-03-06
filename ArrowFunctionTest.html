@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	
+		function showDialog(question, ok, cancel)
+		{
+			if(confirm(question)) {
+				ok(); //its a call back to fun1
+			}else {
+				cancel(); //its a call back to fun2
+			}
+		}
+	
+		showDialog("Do you wish to save?", 	
+					 () => {
+						alert("Yes I want to save!!!");
+					} , 	
+					 () => {
+						alert("No I dont want to save!!!");
+					}
+		);
+		
+	
+		showDialog("Do you wish to modify?", 	
+				 () => {
+					alert("Yes I want to edit it!!!");
+				} , 	
+				 () => {
+					alert("No I dont want to edit it!!!");
+				}
+	);
+
+		
+	showDialog("Do you wish to Delete?", 	
+				 () => {
+					alert("Yes I want to Delete it !!!");
+				} , 	
+				 () => {
+					alert("No I dont want to Delete it!!!");
+				}
+	);
+	
+	
+	showDialog("Do you love me?", 	
+			function () {
+				alert("Yes, I Love You !!!");
+			} , 	
+			function () {
+				alert("No, I dont Love You!!!");
+			}
+);
+
+
+
+			
+	</script>
+</body>
+</html>
