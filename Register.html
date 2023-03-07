@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Welcome To My Airlines</title>
+		
+		<link rel="stylesheet" href="mystyle.css"/>
+		
+		<script>
+				function validateRegistration()
+				{
+				//	alert('You are in validation code....');
+					
+					let email=document.getElementById("myEmail").value;
+					let pass=document.getElementById("myPass").value;
+					let dob=document.getElementById("myDob").value;
+					let addr=document.getElementById("myAdd").value;
+					
+					if(email=='') {
+						//alert('Email cannot be blank');
+						document.getElementById("emailErr").innerHTML='Email cannot be blank';
+						return false;
+					}
+					if(pass=='') {
+						//alert('Password cannot be blank');
+						document.getElementById("passErr").innerHTML='Password cannot be blank';
+
+						return false;
+					}
+					if(dob=='') {
+						//alert('Birthdate cannot be blank');
+						document.getElementById("dobErr").innerHTML='Birthdate cannot be blank';
+
+						return false;
+					}
+					if(addr=='') {
+						//alert('Address cannot be blank');
+						document.getElementById("addErr").innerHTML='Address cannot be blank';
+
+						return false;
+					}
+					return true;
+				}	
+				
+				function clearEmailErrMsg(){
+					document.getElementById("emailErr").innerHTML='';
+				}
+				function clearPassErrMsg(){
+					document.getElementById("passErr").innerHTML='';
+				}
+
+				function clearDobErrMsg(){
+					document.getElementById("dobErr").innerHTML='';
+				}
+
+				function clearAddErrMsg(){
+					document.getElementById("addErr").innerHTML='';
+				}
+
+				
+		</script>
+	</head>
+	
+	<body>
+		<h1 >Welcome To My Airlines</h1>	
+		
+		<hr>
+		<a href="Home.html">Back</a> 
+		
+		<h2>Registration Process</h2>
+		
+		<form action="Login.html">
+			<table border=3 cellspacing=10 cellpadding=10>
+			
+				<tr><td>Enter email</td>     <td> <input type=text     id="myEmail"   onkeyup="clearEmailErrMsg()"> <span id="emailErr"></span> </td>  </tr>
+				<tr><td>Enter password</td>  <td> <input type=password id="myPass"  onKeyUp="clearPassErrMsg()">  <span id="passErr"></span>  </td> </tr>
+				<tr><td>Enter birthdate</td> <td> <input type=date     id="myDob"   onKeyUp="clearDobErrMsg()"> <span id="dobErr"></span>     </td> </tr>
+				<tr><td>Enter address</td>   <td> <input type=text     id="myAdd"   onKeyUp="clearAddErrMsg()">  <span id="addErr"></span>    </td></tr>
+			</table>	
+			<button onClick="return validateRegistration(); ">Register ME</button>
+			
+		</form>
+		
+		Already a member? login <a href="Login.html">here</a>
+	</body>
+</html>
