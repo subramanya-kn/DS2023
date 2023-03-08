@@ -23,6 +23,9 @@ var request;
 
 		try
 		{
+			
+			
+			
 			request.onreadystatechange=getInfo;
 			request.open("GET",url,true);
 			request.send();
@@ -33,7 +36,20 @@ var request;
 			alert("Unable to connect to server");
 			
 		}
+		
+		
 	}
+	
+/*	function ShowDialog(question, ok , cancel) {
+		if(prompt(question)) 
+		
+			ok();
+		else
+			cancel();
+		
+	}
+	ShowDialog("how are you",  function fun1() { }, function fun2() { })
+	*/
 
 	function getInfo()
 	{
@@ -60,8 +76,24 @@ var request;
 		//4 REQUEST IS DONE AND RESPONSE IS READY
 		if(request.readyState==4) {//HAS 
 			var val=request.responseText;
+		
+			var val2 = JSON.parse(val);
+			console.log('val:'+val);
+			console.log('val2:'+val2);
+			
+			console.log('albumId   : '+val2.albumId);
+			console.log('id        : '+val2.id);
+			console.log('album     : '+val2.title);
+			console.log('thumbnail : '+val2.thumbnailUrl);
 		//console.log('getInfo() : val : '+val);
 		document.getElementById('dataHere').innerHTML=val;
+		
+		document.getElementById('album_id').innerHTML=val2.albumId;
+		document.getElementById('_id').innerHTML=val2.id;
+		document.getElementById('album_title').innerHTML=val2.title;
+		document.getElementById('album_url').innerHTML=val2.url;
+		document.getElementById('album_thumbnailUrl').innerHTML=val2.thumbnailUrl;
+
 	
 	}
 		
@@ -86,6 +118,23 @@ var request;
 </form>
 
 DATA HERE <span id="dataHere"> </span>
+
+<table border=3 cellspacing=10 cellpadding=10>
+	<tr>
+		<th>Album Id</th>	
+		<th> Id</th>	
+		<th>Title</th>	
+		<th>URL</th>	
+		<th>ThumbnailURL</th>		
+	</tr>	
+	<tr>
+		<td id="album_id">Album Id</td>	
+		<td id="_id">Id</td>	
+		<td id="album_title">Title</td>	
+		<td id="album_url">URL</td>	
+		<td id="album_thumbnailUrl">ThumbnailURL</td>		
+	</tr>
+</table>
 
 </body>
 </html>
