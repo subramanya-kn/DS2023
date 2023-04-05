@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Welcome To My Airlines</title>
+		
+		<link rel="stylesheet" href="mystyle.css"/>
+		
+	</head>
+	
+	<body>
+		<a href="http://localhost:8080/MyDSProject/hi">hi here</a> <br>
+		<a href="http://localhost:8080/MyDSProject/hello">hello here</a> <br>
+		<a href="http://localhost:8080/MyDSProject/greet">greet here</a> <br>
+		
+		
+		
+		<h1>Welcome To My Airlines</h1>	
+		<!--  
+			<h2>Fly Forever</h2>	
+			<h3>Fly Anywhere</h3>	
+		-->
+		<hr>
+		<a href="Register.html">Sign-Up</a> 
+		<a href="Login.html">Sign-In</a>
+		
+		<form  action="http://localhost:8080/MyDSProject/flightEnquiry">
+		
+			<h2>Search The Desired Flights</h2>
+			<table border=3 cellspacing=10 cellpadding=10>
+			<tr><td>Enter source city</td>  <td><input type=text name="sourceCity"></td> </tr>
+			<tr><td>Enter target city</td>  <td><input type=text name="targetCity"></td> </tr>
+			<tr><td>Enter journey date</td> <td><input type=date name="journeyDate"></td> </tr>
+			</table>
+			<input type=submit name=submit value="Click Me">
+		</form>
+<!-- 		<a href="AvailableFlights.html">Search Flights</a>
+ -->	
+ </body>
+</html>

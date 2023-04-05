@@ -1,0 +1,4 @@
+create table currency (   currencyId int primary key,   source_currency varchar(20),   target_currency varchar(20),   amount_to_convert int );
+insert into currency values (1,'INR','USD',500);                         
+insert into currency values (2,'INR','EUR',500); 
+insert into currency values (3,'INR','DIN',500);  
